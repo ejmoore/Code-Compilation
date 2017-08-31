@@ -23,7 +23,7 @@
 </g:each>
 
 <br><br><br>
-<h1>TEST SECTION FOR GETTING LIST OF COURSES, AND ASSIGNMENTS</h1>
+<h1>TEST SECTION FOR GETTING LIST OF COURSES</h1>
 
 <g:form action="getToken"><g:submitButton name="getToken"></g:submitButton></g:form>
 

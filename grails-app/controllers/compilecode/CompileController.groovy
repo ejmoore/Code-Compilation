@@ -86,6 +86,9 @@ class CompileController {
             }
         }
 
+        ArrayList<String> courseNames = new ArrayList<>()
+        ArrayList<String> roles = new ArrayList<>()
+
         for (LazyMap lm : courses) {
             ArrayList enr = lm.get(("enrollments"))
             String role
@@ -97,11 +100,15 @@ class CompileController {
                 role = lm2.get("type")
             }
             if (lm.get("name") == null) continue
+            courseNames.add(lm.get("name"))
+            roles.add(role)
             println lm.get("name") + " with id " + lm.get("id") + " and I'm a " + role
         }
 
         render view: "courseList", model:[
-                user : cu
+                courseNames : courseNames,
+                roles       : roles,
+                user        : cu
         ]
     }
 
@@ -141,7 +148,7 @@ class CompileController {
     def reviewPastFile() {
         println "Reviewing File With ID:" + params.fileId
 
-        FileRevision fr = FileRevision.get(Integer.parseInt(params.fileId))
+        FileRevision fr = FileRevisiong.get(Integer.parseInt(params.fileId))
         List<Diagnostic> diagnostics = Diagnostic.findAllByFile(fr)
 
         render view: "reviewFile", model:[

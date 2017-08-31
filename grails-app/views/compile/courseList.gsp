@@ -13,5 +13,8 @@
 
 <body>
 <h1>Hello ${user.name}!</h1>
+<g:each in = "${courseNames}" var = "course">
+    <p>"${course}</p>
+</g:each>
 </body>
 </html>
